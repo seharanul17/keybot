@@ -1,0 +1,95 @@
+BRS_noBackprop: false
+Dataset:
+  NAME: dataset16
+  aug:
+    p:
+    - 0.2
+    - 0.2
+    - 0.2
+    - 0.2
+    type: aug_isbi_cnn19_flip
+  heatmap_encoding_maxone: false
+  heatmap_max_norm: false
+  heatmap_std: 7.5
+  image_size:
+  - 512
+  - 256
+  label_smoothing: false
+  num_keypoint: 68
+  subpixel_decoding: true
+  subpixel_decoding_patch_size: 15
+  subpixel_heatmap_encoding: false
+Hint:
+  max_hint: 13
+  num_dist: datset16_1
+MISC:
+  TB: false
+  free_memory: false
+  gpu: '0'
+  num_workers: 0
+Model:
+  Decoder:
+    dilation: 5
+  HintEncoder:
+    dilation: 5
+  L1Loss: false
+  L2Loss: false
+  MSELoss: 0.0
+  NAME: RITM_SE_HRNet32
+  SE_maxpool: true
+  SE_softmax: false
+  bbox_predictor: false
+  facto_heatmap: false
+  input_padding: null
+  no_iterative_training: false
+  subpixel_decoding_coord_loss: false
+  use_prev_heatmap: true
+  use_prev_heatmap_only_for_hint_index: true
+Morph:
+  angle_lambda: 0.01
+  coord_use: false
+  cosineSimilarityLoss: true
+  distance_l1: true
+  distance_lambda: 0.01
+  pairs: dataset16_3
+  threePointAngle: true
+  use: true
+Optimizer:
+  lr: 0.001
+  optimizer: Adam
+  scheduler: ''
+PATH:
+  DATA:
+    IMAGE: ./preprocess_data/AASCE_processed/
+    TABLE: ./preprocess_data/AASCE_processed/
+  ROOT_PATH: ./
+Revision:
+  type: worst
+Train:
+  SR_standard: ''
+  batch_size: 4
+  decision_metric: hargmax_mm_MRE
+  epoch: 1000
+  metric:
+  - MAE
+  - RMSE
+  - MRE
+  patience: 50
+batch_size: 1
+config: ForTest
+debug: false
+fBRS_test_mode: null
+only_test_version: AASCE_interactive_keypoint_estimation
+random_morph_angle_lambda: -1
+random_morph_distance_lambda: -1
+revision_type: worst
+save_test_prediction: true
+seed: 42
+split_test_dataset: null
+subpixel_inference: 15
+test_pixelspacing_one: false
+use_cpu: false
+use_deterministic: false
+use_prev_heatmap_inference: true
+use_prev_heatmap_only_for_hint_index: true
+version: AASCE_interactive_keypoint_estimation
