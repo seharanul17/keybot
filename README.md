@@ -1,4 +1,4 @@
-#[ECCV24] Bones Can't Be Triangles: Accurate and Efficient Vertebrae Keypoint Estimation through Collaborative Error Revision 
+# [ECCV24] Bones Can't Be Triangles: Accurate and Efficient Vertebrae Keypoint Estimation through Collaborative Error Revision 
 
 [[Project Page]](https://ts-kim.github.io/KeyBot/)
 ## Introduction
